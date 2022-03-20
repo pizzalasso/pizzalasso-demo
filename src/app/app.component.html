@@ -20,7 +20,7 @@
           <a class="nav-link" routerLink="sign-in">Sign In</a>
         </li>
         <li class="nav-item" *ngIf="authenticated">
-          <a class="nav-link" routerLink="sign-in">Sign Out</a>
+          <a class="nav-link" (click)="signOut()">Sign Out</a>
         </li>
       </ul>
     </div>
