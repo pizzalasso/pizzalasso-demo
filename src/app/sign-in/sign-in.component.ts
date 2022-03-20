@@ -11,7 +11,7 @@ import { DemoService } from '../demo.service';
 })
 export class SignInComponent implements OnInit {
 
-  public form: FormGroup;
+  form: FormGroup;
   loading = false;
   submitted = false;
   hide = true;
@@ -45,9 +45,10 @@ export class SignInComponent implements OnInit {
       .pipe(first())
       .subscribe({
           next: res => {
-            console.log('success')
+            this.router.navigateByUrl('/');
           },
           error: error => {
+            console.log('error',error)
             this.loading = false;
           }
       });

@@ -9,10 +9,12 @@ import { UploadAdapter } from './shared/upload-adapter';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-
-  public config: any;
   
   title = 'pizzalasso-demo';
+
+  authenticated = localStorage.getItem('token_data');
+
+  public config: any;
 
   editorData = '';
 
