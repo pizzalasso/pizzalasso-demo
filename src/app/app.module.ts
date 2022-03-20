@@ -16,6 +16,7 @@ import { EmployerComponent } from './employer/employer.component';
 import { CareersComponent } from './careers/careers.component';
 import { ContentComponent } from './content/content.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
     BrowserModule,
     AppRoutingModule,
     CKEditorModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -25,8 +25,8 @@ app.post("/auth", async (req, res) => {
                 "TOKEN_KEY",
                 { expiresIn: "2h", }
             );    
-            user.token = token;    
-            res.status(200).json(user);
+            // user.token = token;    
+            res.status(200).json({token: token, expires_in: 7200});
         }
         res.status(400).send("Invalid Credentials");
     } catch (err) {
