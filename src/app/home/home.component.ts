@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   constructor(private demoService: DemoService) { }
 
   ngOnInit(): void {
-    this.demoService.login("username", "password").subscribe();
+    this.demoService.login("user", "password").subscribe();
   }
 
 }
