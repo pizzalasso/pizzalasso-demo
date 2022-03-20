@@ -11,7 +11,6 @@ app.get('/*', function(req,res) {
 });
 
 app.post("/auth", async (req, res) => {
-    console.log("req",req);
     try {
         const { username, password } = req.body;
         if (!(username && password)) {
@@ -20,7 +19,7 @@ app.post("/auth", async (req, res) => {
         const user = { _id: "1", username: "user", password: "password" };    
         if (username === user.username && password === user.password) {          
             const token = jwt.sign(
-                { user_id: user._id, email },
+                { user_id: user._id, username },
                 // process.env.TOKEN_KEY,
                 "TOKEN_KEY",
                 { expiresIn: "2h", }
