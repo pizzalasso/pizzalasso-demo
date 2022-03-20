@@ -31,6 +31,7 @@ export class AppComponent implements OnInit{
   ) { }
 
   ngOnInit(): void {
+    this.authenticated = localStorage.getItem('token_data');
   }
 
   // public onChange( { editor }: ChangeEvent ) {
