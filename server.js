@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const jwt = require("jsonwebtoken");
+const auth = require("./auth");
 
 app.use(express.json());
 app.use(express.static(__dirname + '/dist/pizzalasso-demo'));
@@ -32,4 +33,9 @@ app.post("/auth", async (req, res) => {
         console.log(err);
     }
 });
+
+app.post("/test", auth, (req, res) => {
+  res.status(200).send("test");
+});
+
 app.listen(process.env.PORT || 8080);
