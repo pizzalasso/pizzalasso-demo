@@ -1,2 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+.ck-readonly { 
+    .ck-toolbar {
+        border: none !important;
+    }
+    .ck-content {
+        border: none !important;
+        p {
+            text-align: justify;
+        }
+    }
+}
