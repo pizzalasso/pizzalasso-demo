@@ -3,6 +3,7 @@ const path = require('path');
 const app = express();
 const jwt = require("jsonwebtoken");
 
+app.use(express.json());
 app.use(express.static(__dirname + '/dist/pizzalasso-demo'));
 
 app.get('/*', function(req,res) {
