@@ -12,12 +12,12 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="careers">Careers</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="content">Content</a>
         </li>        
         <li class="nav-item" *ngIf="!authenticated">
           <a class="nav-link" routerLink="sign-in">Sign In</a>
+        </li>
+        <li class="nav-item" *ngIf="authenticated">
+          <a class="nav-link" routerLink="content">Content</a>
         </li>
         <li class="nav-item" *ngIf="authenticated">
           <a class="nav-link" (click)="signOut()">Sign Out</a>
