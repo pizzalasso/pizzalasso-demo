@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  url: "https://pizzalasso-demo.herokuapp.com"
+  url: "http://localhost:8080"
 };

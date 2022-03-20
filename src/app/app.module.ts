@@ -16,7 +16,8 @@ import { EmployerComponent } from './employer/employer.component';
 import { CareersComponent } from './careers/careers.component';
 import { ContentComponent } from './content/content.component';
 import { SignInComponent } from './sign-in/sign-in.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './token.interceptor';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,9 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

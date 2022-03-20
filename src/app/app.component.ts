@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { DemoService } from './demo.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +12,7 @@ export class AppComponent implements OnInit{
   
   // title = 'pizzalasso-demo';
 
-  authenticated = localStorage.getItem('token_data');
+  authenticated: Observable<any>;
 
   // public config: any;
 
@@ -27,11 +29,12 @@ export class AppComponent implements OnInit{
   // };
 
   constructor(
-    private router: Router
+    private router: Router,
+    private demoService: DemoService
   ) { }
 
   ngOnInit(): void {
-    this.authenticated = localStorage.getItem('token_data');
+    this.authenticated = this.demoService.authObs
   }
 
   // public onChange( { editor }: ChangeEvent ) {
@@ -48,7 +51,7 @@ export class AppComponent implements OnInit{
   // }
 
   signOut() {
-    localStorage.clear();
+    this.demoService.logout();    
     this.router.navigateByUrl('/');
   }
 
