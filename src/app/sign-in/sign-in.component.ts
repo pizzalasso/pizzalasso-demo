@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { first } from 'rxjs';
+import { DemoService } from '../demo.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,9 +11,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignInComponent implements OnInit {
 
-  constructor() { }
+  public form: FormGroup;
+  loading = false;
+  submitted = false;
+  hide = true;
 
-  ngOnInit(): void {
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private demoService: DemoService
+  ) { 
+      
+  }
+
+  ngOnInit() {
+    this.form = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
+
+  get f() { return this.form.controls; }
+
+  onSubmit() {
+    this.submitted = true;
+    if (this.form.invalid) {
+        return;
+    }
+
+    this.loading = true;
+    this.demoService.login(this.f['username'].value, this.f['password'].value)
+      .pipe(first())
+      .subscribe({
+          next: res => {
+            console.log('success')
+          },
+          error: error => {
+            this.loading = false;
+          }
+      });
   }
 
 }

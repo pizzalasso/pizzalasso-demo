@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { NewsComponent } from './news/news.component';
 import { AboutComponent } from './about/about.component';
@@ -37,6 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     CKEditorModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],

@@ -13,7 +13,7 @@ export class DemoService {
   login(username: string, password: string) {
     return this.http.post(`${env.url}/auth`, { username, password })
       .pipe(map(res => {
-          console.log(res);
+        localStorage.setItem('token_data', JSON.stringify(res));
       }));
   }
 }

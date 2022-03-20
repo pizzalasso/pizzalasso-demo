@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import * as CustomEditor from '.ckeditor';
-import { DemoService } from '../demo.service';
 
 @Component({
   selector: 'app-home',
@@ -17,10 +16,10 @@ export class HomeComponent implements OnInit {
     editorData: this.contentData
   };
 
-  constructor(private demoService: DemoService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.demoService.login("user", "password").subscribe();
+    
   }
 
 }
