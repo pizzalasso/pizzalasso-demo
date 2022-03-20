@@ -10,13 +10,14 @@ app.get('/*', function(req,res) {
 });
 
 app.post("/auth", async (req, res) => {
+    console.log("req",req);
     try {
         const { username, password } = req.body;
         if (!(username && password)) {
             res.status(400).send("All input is required");
         }
         const user = { _id: "1", username: "user", password: "password" };    
-        if (user && password === user.password) {          
+        if (username === user.username && password === user.password) {          
             const token = jwt.sign(
                 { user_id: user._id, email },
                 // process.env.TOKEN_KEY,
