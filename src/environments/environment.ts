@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: "https://pizzalasso-demo.herokuapp.com/"
+  url: "https://pizzalasso-demo.herokuapp.com"
 };
 
 /*

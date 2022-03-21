@@ -24,7 +24,6 @@ export class ContentComponent implements OnInit {
 
   ngOnInit(): void {
     this.demoService.getContent().subscribe(res => {
-      console.log(res);
       this.model.editorData = res.content;
     });
   }  
